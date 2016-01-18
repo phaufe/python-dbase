@@ -133,6 +133,7 @@ class DbfHeaderFieldDescriptor(object):
 # DBF file header
 
 class DBF(object):
+    '''main class, represents a DBF file'''
     
     DFB_FILE_TERMINATOR = chr( 0x1A )
     
