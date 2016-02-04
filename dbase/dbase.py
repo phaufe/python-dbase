@@ -25,6 +25,8 @@ class DbfFieldType(object):
             # lenght validation
             if len( value ) > field_descriptor.field_length:
                 raise ValueError( 'DBFError: len( value ) > field_descriptor.field_length. "%s": "%s"' % (field_descriptor.field_name, value) )
+            # encoding conversion, or normalization
+            value = unicodedata.normalize('NFKD', value).encode('ascii', 'ignore')
             return value.ljust( field_descriptor.field_length )
         # number type
         elif self.dbf_type == 'N':
